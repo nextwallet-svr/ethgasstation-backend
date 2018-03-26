@@ -50,7 +50,13 @@ To run the script as is on bare metal or a VM, manually:
 
 0. Edit `settings.conf` and install to [an allowed directory](https://github.com/ethgasstation/ethgasstation-backend/pull/17/files#diff-bbda44d05044576b25a2c6cf4b0c3597R37). e.g. copy `settings.classic.conf` to `/etc/ethgasstation/settings.conf`
 1. Install requirements using `pip3 install -r requirements.txt` (maybe you need to run `pip install numpy --upgrade` after that)
-2. Run `./ethgasstation.py` or `python3 ethgasstation.py`.
+2. Install MySQL DB, then init db and user with configs in settings.conf.  
+```sql
+CREATE DATABASE tx;
+CREATE USER 'ethgas'@'localhost' IDENTIFIED BY 'station';
+GRANT ALL ON tx.* to 'ethgas'@'localhost';
+```
+3. Run `./ethgasstation.py` or `python3 ethgasstation.py`.
 
 If you are running a frontend to ETH Gas Station, use the `--generate-report`
 flag to generate detailed JSON reports for front-end or API consumption.
