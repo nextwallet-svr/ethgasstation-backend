@@ -58,6 +58,8 @@ GRANT ALL ON tx.* to 'ethgas'@'localhost';
 ```
 3. Run `./ethgasstation.py` or `python3 ethgasstation.py`.
 
+Note: 如何解读产生的json文件，可参考 https://ethgasstation.info/gasrecs.php 并与官网主页数据对比得出结果
+
 If you are running a frontend to ETH Gas Station, use the `--generate-report`
 flag to generate detailed JSON reports for front-end or API consumption.
 
